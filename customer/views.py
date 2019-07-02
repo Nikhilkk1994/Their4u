@@ -13,10 +13,3 @@ class UserSignIn(rest_mixins.CreateModelMixin, GenericViewSet):
     ViewSet for Sign In new Customer
     """
     serializer_class = customer_serilizer.CustomerSignInSerilizer
-
-class CustomerLogin(rest_mixins.CreateModelMixin, GenericViewSet):
-    """
-    ViewSet for Customer Login
-    """
-
-
