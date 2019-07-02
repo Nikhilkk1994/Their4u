@@ -60,16 +60,3 @@ class CustomerSignInSerilizer(rest_serializers.ModelSerializer):
         validated_data['user'] = user
         customer = customer_models.Customer.objects.create(**validated_data)
         return customer
-
-
-class CustomerLogin(rest_serializers.Serializer):
-    username = rest_serializers.EmailField(required=True)
-    password = rest_serializers.CharField(required=True)
-
-    def validate(self, attrs):
-        username = attrs.get('email')
-        password = attrs.get('password')
-        # check is the user exists
-        user = customer_models.User.objects.filter(email=username).first()
-        if not (user or user.check_password(password)):
-            raise rest_serializers.ValidationError('Either password/username is wrong')
