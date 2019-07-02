@@ -1,0 +1,37 @@
+*.py[cod]
+*.log
+*.pot
+
+# Unit test / coverage reports
+.coverage
+.tox
+htmlcov
+coverage.xml
+
+# Translations
+*.mo
+
+# Developer
+.pydevproject
+.project
+.settings/
+.idea/
+.*~
+
+# locals
+static-tmp
+media
+media-test
+*.sqlite3
+.env
+local.py
+.sass-cache
+*~
+# celery-beat
+celerybeat-schedule
+celerybeat-schedule.db
+# Sensitive Files
+apps/sso/saml/certs/sp*
+
+# Log File
+log/*
