@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'customer',
     'technician',
-    'booking'
+    'booking',
+    'rest_framework_swagger'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -79,6 +80,18 @@ TEMPLATES = [
         },
     },
 ]
+
+SWAGGER_SETTINGS = {
+        'USE_SESSION_AUTH': False,
+        'SECURITY_DEFINITIONS': {
+            'token': {
+                'type': 'apiKey',
+                'description': 'Token Authentication',
+                'name': 'Authorization',
+                'in': 'header',
+            },
+        },
+    }
 
 WSGI_APPLICATION = 'There4U.wsgi.application'
 

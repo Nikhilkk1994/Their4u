@@ -12,12 +12,18 @@ Class-based views
 Including another URLconf
     1. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include
+from django.conf.urls import url
 from django.contrib import admin
+from rest_framework_swagger.views import get_swagger_view
 
 from customer import urls as customer_urls
 
+schema_view = get_swagger_view(title='Their For You API')
+
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(customer_urls))
+    url(r'^api/', include(customer_urls)),
+    url(r'^api-docs/$', schema_view, name='api_docs')
 ]
